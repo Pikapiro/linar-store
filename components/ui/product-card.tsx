@@ -9,7 +9,9 @@ import IconButton from "@/components/ui/icon-button";
 
 
 
-function ProductCard(data: string  ) {
+
+
+function ProductCard(data: any  ) {
 
 
   const router = useRouter();
