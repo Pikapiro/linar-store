@@ -5,14 +5,13 @@ import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 
 import IconButton from "@/components/ui/icon-button";
-import useCart from "@/hooks/use-cart";
 
 
 
 
 function ProductCard(data: string  ) {
 
-  const cart = useCart();
+
   const router = useRouter();
 
   const handleClick = () => {
@@ -28,7 +27,7 @@ function ProductCard(data: string  ) {
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
 
-    cart.addItem(data);
+
   };
 
   return (
