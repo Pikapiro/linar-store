@@ -12,15 +12,7 @@ import MobileFilters from './components/mobile-filters';
 
 export const revalidate = 0;
 
-interface CategoryPageProps {
-  params: {
-    categoryId: string;
-  },
-  searchParams: {
-    colorId: string;
-    sizeId: string;
-  }
-}
+
 
 const CategoryPage = async () => {
   

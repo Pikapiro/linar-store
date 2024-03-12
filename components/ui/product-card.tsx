@@ -2,7 +2,7 @@
 
 import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { JSXElementConstructor, MouseEventHandler, PromiseLikeOfReactNode, ReactElement, ReactFragment } from "react";
+import { MouseEventHandler, PromiseLikeOfReactNode, ReactFragment } from "react";
 
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
@@ -10,7 +10,7 @@ import useCart from "@/hooks/use-cart";
 
 
 
-function ProductCard(data: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | PromiseLikeOfReactNode | null | undefined) {
+function ProductCard(data: string  | ReactFragment | PromiseLikeOfReactNode | null | undefined) {
 
   const cart = useCart();
   const router = useRouter();
