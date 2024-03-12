@@ -1,13 +1,12 @@
 "use client";
 
 
-import useCart from "@/hooks/use-cart";
 
 
 
 
 const Info = (props:any) => {
-  const cart = useCart();
+
 
   
   return ( 
