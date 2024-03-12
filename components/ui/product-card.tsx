@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import { MouseEventHandler } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { MouseEventHandler } from "react";
 
-import Currency  from "@/components/ui/currency";
-import IconButton  from "@/components/ui/icon-button";
-import usePreviewModal from "@/hooks/use-preview-modal";
+import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
+import usePreviewModal from "@/hooks/use-preview-modal";
 import { Product } from "@/types";
 
 interface ProductCard {
@@ -23,7 +22,7 @@ const ProductCard: React.FC<ProductCard> = ({
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/product/${data?.id}`);
+    router.push(`/product/${data}`);
   };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -63,13 +62,11 @@ const ProductCard: React.FC<ProductCard> = ({
       </div>
       {/* Description */}
       <div>
-        <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500">{data.category?.name}</p>
+        <p className="font-semibold text-lg">{data}</p>
+        <p className="text-sm text-gray-500">{data}</p>
       </div>
       {/* Price & Reiew */}
-      <div className="flex items-center justify-between">
-        <Currency value={data?.price} />
-      </div>
+      
     </div>
   );
 }

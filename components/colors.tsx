@@ -1,11 +1,35 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+// core version + navigation, pagination modules:
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Swiper from 'swiper';
 
-import { EffectCoverflow, Navigation, Pagination } from 'swiper';
+// import Swiper and modules styles
+import 'swiper/modules/navigation.min.css';
+import 'swiper/modules/pagination.min.css';
+import 'swiper/swiper.min.css';
+
+
+// init Swiper:
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "vertical",
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
 
 let colorsArr=[
 
@@ -34,58 +58,47 @@ let colorsArr=[
 
 ] 
 
+
 function Colors() {
   return (
-    <div className="container">
-      <h1 className="heading">Flower Gallery</h1>
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-        }}
-        pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          clickable: true,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className="swiper_container"
-      >
+// Slider main container
 
-        {colorsArr.map((ele)=>{
-
-// eslint-disable-next-line react/jsx-key
-return <SwiperSlide>
-    <div className='colors'>
-
-    </div>
-         
-        </SwiperSlide>
+<div className="swiper">
 
 
-        })}
-       
-       
+  <div className="swiper-wrapper">
+    {
+  
+    colorsArr.map((ele)=>{
+      // eslint-disable-next-line react/jsx-key
+      return   <div className="swiper-slide" >
+        <h1>
+          {ele.hebName}
+        </h1>
+        <h2>{ele.name}</h2>
+        <p>{ele.number}</p>
+        
+         </div>
+    })}
 
-        <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </div>
-          <div className="swiper-button-next slider-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </div>
-          <div className="swiper-pagination"></div>
-        </div>
-      </Swiper>
-    </div>
+    <div className="swiper-slide">Slide 1</div>
+    <div className="swiper-slide">Slide 2</div>
+    <div className="swiper-slide">Slide 3</div>
+    ...
+  </div>
+
+
+
+  <div className="swiper-pagination"></div>
+
+
+
+  <div className="swiper-button-prev"></div>
+  <div className="swiper-button-next"></div>
+
+\
+  <div className="swiper-scrollbar"></div>
+</div>
   );
 }
 
