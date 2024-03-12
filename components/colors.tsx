@@ -1,35 +1,9 @@
 // core version + navigation, pagination modules:
 
-import Swiper from 'swiper';
-
-// import Swiper and modules styles
-import 'swiper/modules/navigation.min.css';
-import 'swiper/modules/pagination.min.css';
-import 'swiper/swiper.min.css';
-
-
+"use client";
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // init Swiper:
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  direction: "vertical",
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-});
 
 let colorsArr=[
 
@@ -61,44 +35,27 @@ let colorsArr=[
 
 function Colors() {
   return (
-// Slider main container
 
-<div className="swiper">
-
-
-  <div className="swiper-wrapper">
-    {
-  
-    colorsArr.map((ele)=>{
-      // eslint-disable-next-line react/jsx-key
-      return   <div className="swiper-slide" >
-        <h1>
-          {ele.hebName}
-        </h1>
-        <h2>{ele.name}</h2>
-        <p>{ele.number}</p>
-        
-         </div>
-    })}
-
-    <div className="swiper-slide">Slide 1</div>
-    <div className="swiper-slide">Slide 2</div>
-    <div className="swiper-slide">Slide 3</div>
-    ...
-  </div>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={3}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      {colorsArr.map((ele)=>{
+             // eslint-disable-next-line react/jsx-key
+             return <SwiperSlide>
+              <div >
+<h1>{ele.hebName}</h1>
+<h2>{ele.name}</h2>
+              </div>
 
 
+             </SwiperSlide>
+      })}
 
-  <div className="swiper-pagination"></div>
-
-
-
-  <div className="swiper-button-prev"></div>
-  <div className="swiper-button-next"></div>
-
-\
-  <div className="swiper-scrollbar"></div>
-</div>
+    
+    </Swiper>
   );
 }
 

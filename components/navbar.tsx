@@ -4,8 +4,9 @@ import Container from "@/components/ui/container";
 import logo from '@/public/logo.png';
 import Image from "next/image";
 import Link from "next/link";
-import Colors from "./colors";
+
 const Navbar = async () => {
+
   const categories:string[] = [' ACP',' ACP PVDF FR',' Acrylic',' pc solid color',' PVC',' דבקים וסיליקון',' פרופילים',' קאפה','  קטלוג צבעים']
   return ( 
     <div className="border-b">
@@ -24,10 +25,7 @@ return <>  <Link href={`/${ele}`} className="ml-9 flex lg:ml-4 gap-x-6">
  </Link>
          </> })}
          
-         <Link href="/קטלוג צבעים" className="ml-3 flex lg:ml-0 gap-x-2">
-      
-<Colors/>
-      </Link>
+    
         
          
         
